@@ -7,3 +7,5 @@ PyGithub
 pipreqs
 sphinx
 sphinx-rtd-theme
+gunicorn
+whitenoise

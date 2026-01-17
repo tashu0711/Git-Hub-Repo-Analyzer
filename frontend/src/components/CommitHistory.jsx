@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import '../styles/CommitHistory.css';
 import axios from 'axios';
+import API_BASE_URL from '../config';
+import '../styles/CommitHistory.css';
 
 const CommitHistory = () => {
     const [searchItem, setSearchItem] = useState('');
@@ -35,7 +36,7 @@ const CommitHistory = () => {
         setError(null);
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/repoanalyze/get_commit_history/', {
+            const response = await axios.post(`${API_BASE_URL}/repoanalyze/get_commit_history/`, {
                 input: searchItem,
             });
 

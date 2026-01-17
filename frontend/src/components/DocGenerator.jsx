@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import '../styles/DocGenerator.css';
 import axios from 'axios';
+import API_BASE_URL from '../config';
+import '../styles/DocGenerator.css';
 
 const DocGenerator = () => {
     const [searchItem, setSearchItem] = useState('');
@@ -23,7 +24,7 @@ const DocGenerator = () => {
         setDocGenerated(false);
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/repoanalyze/get_files_from_repository/', {
+            const response = await axios.post(`${API_BASE_URL}/repoanalyze/get_files_from_repository/`, {
                 input: searchItem
             });
             setFilesInRepo(response.data.output);
@@ -64,7 +65,7 @@ const DocGenerator = () => {
         setError(null);
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/repoanalyze/generate_doc_strings/', {
+            const response = await axios.post(`${API_BASE_URL}/repoanalyze/generate_doc_strings/`, {
                 input: selectedFiles
             });
             if (response.data.output) {

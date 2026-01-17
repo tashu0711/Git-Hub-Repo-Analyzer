@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 import '../styles/CreateDocumention.css';
 
 const DocumentationGen = () => {
@@ -22,12 +23,12 @@ const DocumentationGen = () => {
         setDocsReady(false);
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/repoanalyze/genDocument_from_docstr/', {
+            const response = await axios.post(`${API_BASE_URL}/repoanalyze/genDocument_from_docstr/`, {
                 input: searchTerm
             });
             if (response.status === 200) {
                 setDocsReady(true);
-                setDocsUrl(response.data.docs_url || 'http://127.0.0.1:8000/repoanalyze/docs/');
+                setDocsUrl(response.data.docs_url || `${API_BASE_URL}/repoanalyze/docs/`);
                 setFilesCount(response.data.files_documented || 0);
             }
         } catch (err) {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 import '../styles/DependencyTracker.css';
 
 const DependencyTracker = () => {
@@ -23,7 +24,7 @@ const DependencyTracker = () => {
         setError(null);
 
         try {
-            const response = await axios.post("http://127.0.0.1:8000/repoanalyze/get_dependencies/", {
+            const response = await axios.post(`${API_BASE_URL}/repoanalyze/get_dependencies/`, {
                 input: searchItem,
             });
             setDependencyOutput(response.data.output);

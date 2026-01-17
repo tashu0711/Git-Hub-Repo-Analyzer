@@ -16,6 +16,10 @@ db.sqlite3
 /backend/.env
 *.pot
 
+# Environment files
+.env
+.env.local
+
 # Git repositories
 *.git/
 
