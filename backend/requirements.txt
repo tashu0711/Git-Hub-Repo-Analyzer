@@ -1,0 +1,9 @@
+django>=5.0
+django-cors-headers
+requests
+google-generativeai
+python-dotenv
+PyGithub
+pipreqs
+sphinx
+sphinx-rtd-theme

@@ -1,209 +1,108 @@
-/* .CommitHistoryContainer {
-    border: 2px solid red;
-    height: 800px;
-}
-.commitoutput{
-    border: 2px solid blue;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+/* Commits Section */
+.commits-section {
+  margin-top: 32px;
+  animation: fadeIn 0.3s ease forwards;
 }
 
-.commitoutput .commitHistoryBlock {
-    border: 2px solid green;
-    width:800px;
-    display: flex;
-} */
-
-body{
-  background-image: url('./../../public/bg3.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-
-/* DependencyTracker.css */
-.CommitHistoryContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  place-content: center;
-  margin-top: 50px;
-  /* background-color: #f9f9f9; */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* background-color: red; */
-}
-
-/*form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input[type="text"] {
-  width: 300px;
-  padding: 10px;
+.commits-header {
   margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.output {
-  width: 500px;
-}
-
-textarea {
-  width: 100%;
-  height: 200px;
-  padding: 10px;
-  margin-top: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  resize: none;
-} */
-
-/* Modified code */
-
-.CommitHistoryContainer form input {
-  width: 80vmin;
-  height: 8vmin;
+.commits-header h3 {
   display: flex;
-  place-content: center;
-  color: white;
-  text-shadow: 0 1px 0 #000;
-
-  --main-bg: conic-gradient(
-      from var(--border-angle),
-      #213,
-      #112 5%,
-      #112 60%,
-      #213 95%
-    );
-  
-  border: solid 5px transparent;
-  border-radius: 2em;
-  --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
-  
-  background: 
-    var(--main-bg) padding-box,
-    var(--gradient-border) border-box, 
-    var(--main-bg) border-box;
-  
-  background-position: center center;
-
-  animation: bg-spin 3s linear infinite;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-@keyframes bg-spin {
-  to {
-    --border-angle: 1turn;
+.commits-header h3 svg {
+  color: var(--secondary-color);
+}
+
+/* Commits List */
+.commits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.commits-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.commits-list::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+  border-radius: 3px;
+}
+
+.commits-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+/* Commit Card */
+.commit-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  transition: var(--transition-normal);
+}
+
+.commit-card:hover {
+  border-color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.commit-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.commit-sha {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(99, 102, 241, 0.15);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.commit-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.commit-message {
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .commit-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
-}
 
-.CommitHistoryContainer form input:hover {
-  animation-play-state: paused;
-}
-
-@property --border-angle {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0turn;
-}
-
- form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
- form button {
-  width: 20vmin;
-  height: 8vmin;
-  color: white;
-  margin-top: 2rem;
-  text-shadow: 0 1px 0 #000;
-  
-  --main-bg: conic-gradient(
-      from var(--border-angle),
-      #213,
-      #112 5%,
-      #112 60%,
-      #213 95%
-    );
-  
-  border: solid 5px transparent;
-  border-radius: 2em;
-  --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
-  
-  background: 
-    var(--main-bg) padding-box,
-    var(--gradient-border) border-box, 
-    var(--main-bg) border-box;
-  
-  background-position: center center;
-
-  animation: bg-spin 3s linear infinite;
-}
-.commitoutput{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.commitHistoryBlock  {
-  min-width: 120vmin;
-  max-width: 80%; /* Adjust as needed */
-  min-height: 20vmin;
-  max-height: auto; /* Adjust as needed */
-  display: flex;
-  margin-top: 3rem;
-  place-content: center;
-  color: white;
-  text-shadow: 0 1px 0 #000;
-  overflow: auto; /* Add this */
-  word-wrap: break-word; /* Add this */
-
-  --main-bg: conic-gradient(
-      from var(--border-angle),
-      #213,
-      #112 5%,
-      #112 60%,
-      #213 95%
-    );
-  
-  border: solid 5px transparent;
-  border-radius: 2em;
-  --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
-  
-  background: 
-    var(--main-bg) padding-box,
-    var(--gradient-border) border-box, 
-    var(--main-bg) border-box;
-  
-  background-position: center center;
-
-  animation: bg-spin 3s linear infinite;
-}
-
-
- textarea:hover {
-  animation-play-state: paused;
+  .commits-list {
+    max-height: 400px;
+  }
 }

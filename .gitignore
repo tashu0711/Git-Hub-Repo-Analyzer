@@ -1,2 +1,37 @@
-jango
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+db.sqlite3
 /backend/.env
+*.pot
+
+# Git repositories
+*.git/
+
+# Documentation
+backend/documentation.zip
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
